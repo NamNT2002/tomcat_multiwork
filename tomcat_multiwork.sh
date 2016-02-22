@@ -166,11 +166,20 @@ centos_base_iptables()
 	chkconfig iptables on
 }
 
+centos_create_work()
+{
+cd /tmp
+wget https://raw.githubusercontent.com/NamNT2002/tomcat_multiwork/master/vhost.sh
+mv /tmp/vhost.sh /usr/bin/create_work
+chmod +x /usr/bin/create_work
+}
+
 main()
 {
 	centos_base
 	centos_inst_tomcat
 	centos_base_iptables
+	centos_create_work
 }
 #End Create service
 main
