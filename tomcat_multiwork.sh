@@ -184,3 +184,6 @@ main()
 #End Create service
 main
 clear
+echo 'Create New Working'
+echo 'Please input: create_work'
+echo 'Thanks!'
