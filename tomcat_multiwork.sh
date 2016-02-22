@@ -161,7 +161,7 @@ centos_base_iptables()
 	/etc/init.d/iptables save
 	iptables -P INPUT DROP
 	iptables -P FORWARD DROP
-	iptables -P OUTPUT DROP
+	#iptables -P OUTPUT DROP
 	/etc/init.d/iptables save
 	chkconfig iptables on
 }
