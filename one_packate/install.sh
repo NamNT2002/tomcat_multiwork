@@ -50,7 +50,7 @@ centos_inst_tomcat()
 	cp -ar /tmp/apache-tomcat-7.0.68/* $dir_tomcat/
 	mv /tmp/apache-tomcat-7.0.68/ /tmp/tomcat-default
 	#mv apache-tomcat-7.0.68 tomcat-default
-	tar -cf tomcat-default.tar.gz tomcat-default/conf tomcat-default/bin tomcat-default/logs tomcat-default/temp tomcat-default/webapps tomcat-default/work --remove-file
+	tar -cf tomcat-default.tar.gz tomcat-default/conf tomcat-default/logs tomcat-default/temp tomcat-default/webapps tomcat-default/work --remove-file
 	rm -rf tomcat-default
 	rm -rf /tmp/apache-tomcat-7.0.68.tar.gz
 	cd ~

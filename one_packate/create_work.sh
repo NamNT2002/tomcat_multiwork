@@ -129,7 +129,6 @@ CATALINA_HOME=$dir_tomcat
 CATALINA_BASE=/var/tomcat/$name_work
 export CATALINA_HOME=$dir_tomcat
 export CATALINA_BASE=/var/tomcat/$name_work
-CATALINA_HOME=/var/tomcat/$name_work
 TOMCAT_USER=tomcat
 LOCKFILE=/var/lock/subsys/$name_work
 
@@ -173,6 +172,7 @@ exit 1
 esac
 exit \$?
 hspservice
+	ln -s $dir_tomcat/bin /var/tomcat/$name_work/bin/
 	chown -R tomcat. /var/tomcat/$name_work
 	chmod +x /etc/init.d/$name_work
 	/etc/init.d/$name_work start
@@ -190,6 +190,8 @@ main()
 	clear
 }
 main
+get_int=$(route -n | grep 'UG' | awk '{print $NF}')
+get_ip=$(ip addr show $get_int | grep 'scope global' | tr '/' ' ' | awk '{print $2}')
 echo 'Create Done'
-echo "port connect: $port_conn"
-echo "port ajp: $port_ajp"
+echo "port connect: http://$get_ip:$port_conn"
+echo "port ajp: $get_ip:$port_ajp"
