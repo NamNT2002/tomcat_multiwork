@@ -172,7 +172,7 @@ exit 1
 esac
 exit \$?
 hspservice
-	ln -s $dir_tomcat/bin /var/tomcat/$name_work/bin/
+	#ln -s $dir_tomcat/bin /var/tomcat/$name_work/bin/
 	chown -R tomcat. /var/tomcat/$name_work
 	chmod +x /etc/init.d/$name_work
 	/etc/init.d/$name_work start
